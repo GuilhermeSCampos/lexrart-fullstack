@@ -52,7 +52,7 @@ const Header = () => {
         </div>
       </div>
 
-      <div className="flex self-center gap-4  mr-12 text-white text-sm xl:text-xl">
+      <div className="flex self-center gap-4  mr-2 md:mr-12 text-white text-sm xl:text-xl">
         {userIsLogged ? (
           <div className="flex justify-between gap-4 text-white">
             <p>Welcome, {userName}</p>
