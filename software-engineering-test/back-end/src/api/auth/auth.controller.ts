@@ -1,6 +1,6 @@
 import { RequestHandler } from "express";
 import AuthService from "./auth.service";
-import JWT from "@/JWT";
+import JWT from "../../JWT";
 
 export default class AuthController {
   constructor(

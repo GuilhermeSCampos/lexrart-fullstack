@@ -1,4 +1,4 @@
-import { UserSchema } from "@/schemas/user.schema";
+import { UserSchema } from "../../schemas/user.schema";
 import { RequestHandler } from "express";
 
 export default class AuthMiddleware {

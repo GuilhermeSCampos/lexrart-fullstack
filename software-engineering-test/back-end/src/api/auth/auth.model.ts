@@ -1,7 +1,7 @@
-import { User } from "@/database/entity/User";
-import { BlacklistRepository } from "@/database/repository/black-list-repository";
-import { UserRepository } from "@/database/repository/user-repository";
-import { TUser } from "@/schemas/user.schema";
+import { User } from "../../database/entity/User";
+import { BlacklistRepository } from "../../database/repository/black-list-repository";
+import { UserRepository } from "../../database/repository/user-repository";
+import { TUser } from "../../schemas/user.schema";
 
 const bcrypt = require('bcryptjs');
 

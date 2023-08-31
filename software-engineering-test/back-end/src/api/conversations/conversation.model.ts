@@ -1,6 +1,6 @@
-import { ConversationHistoricRepository } from "@/database/repository/conversation-repository";
+import { ConversationHistoricRepository } from "../../database/repository/conversation-repository";
 import AuthModel from "../auth/auth.model";
-import { ConversationHistoric } from "@/database/entity/ConversationHistoric";
+import { ConversationHistoric } from "../../database/entity/ConversationHistoric";
 
 export default class ConversationModel {
   constructor(

@@ -2,7 +2,7 @@ import { Router } from 'express';
 import ConversationController from './conversation.controller';
 import NotAllowed from '../generic.controller';
 import ConversationMiddleware from './conversation.middleware';
-import { validateToken } from '@/validations/validateToken';
+import { validateToken } from '../../validations/validateToken';
 const rescue = require('express-rescue');
 
 const router = Router();

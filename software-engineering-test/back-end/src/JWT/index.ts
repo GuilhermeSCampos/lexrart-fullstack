@@ -1,7 +1,7 @@
 import * as jwt from 'jsonwebtoken';
 import 'dotenv/config';
-import { TUser } from '@/schemas/user.schema';
-import AuthModel from '@/api/auth/auth.model';
+import { TUser } from '../schemas/user.schema';
+import AuthModel from '../api/auth/auth.model';
 
 export default class JWT {
   private secret: string;

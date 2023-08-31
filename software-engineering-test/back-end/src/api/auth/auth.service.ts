@@ -1,7 +1,7 @@
-import { TUser } from "@/schemas/user.schema";
+import { TUser } from "../../schemas/user.schema";
 import AuthModel from "./auth.model";
 import { compare } from 'bcryptjs';
-import JWT from "@/JWT";
+import JWT from "../../JWT";
 
 export default class AuthService {
   constructor(

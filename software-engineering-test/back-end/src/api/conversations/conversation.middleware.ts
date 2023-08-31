@@ -1,4 +1,4 @@
-import { ConversationSchema } from "@/schemas/conversation.schema";
+import { ConversationSchema } from "../../schemas/conversation.schema";
 import { RequestHandler } from "express";
 
 export default class ConversationMiddleware {

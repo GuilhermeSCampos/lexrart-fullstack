@@ -1,4 +1,4 @@
-import { exportToCSV } from "@/utils/csv-writer";
+import { exportToCSV } from "../../utils/csv-writer";
 import ConversationModel from "./conversation.model";
 
 export default class ConversationService {

@@ -1,6 +1,6 @@
 import { RequestHandler } from "express";
 import ConversationService from "./conversation.service";
-import JWT from "@/JWT";
+import JWT from "../../JWT";
 import path = require("path");
 const fs = require('fs');
 
