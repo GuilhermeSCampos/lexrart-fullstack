@@ -30,6 +30,7 @@ export default class ConversationController {
 
   public downloadCSV: RequestHandler = async (req, res) => {
     const { user_name } = req.body;
+    console.log(req.body)
     const { id } = req.params;
     const filePath = path.join(__dirname, '../../../conversations.csv');
 

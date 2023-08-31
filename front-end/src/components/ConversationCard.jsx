@@ -7,10 +7,11 @@ const ConversationCard = ({ userName, id, date }) => {
       `${import.meta.env.VITE_API_URL}/conversation/download/${id}`,
       {
         method: "PATCH",
+        body: JSON.stringify({ user_name: userName }),
         headers: {
+          "Content-Type": "application/json",
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
-        body: JSON.stringify({ user_name: userName }),
       }
     );
     const blob = await response.blob();
