@@ -10,7 +10,7 @@ This project aims to develop a web chatbot that responds to certain terms
 In addition to being able to install and run the project locally, you can also interact with this
 [<strong>online deploy made with vercel</strong>](https://lexrart-fullstack.vercel.app/)
 
-> 	:bangbang: As the deployment is done in a free plan, the first requests may take a while to load. :bangbang:
+> 	:bangbang: As the deployment is done in a free plan, the first requests as the register and login may take a while to load. :bangbang:
 
 
 <br />
@@ -44,8 +44,7 @@ And you can also check the API in this [<strong>deploy performed in Render</stro
 - Zod
 - TypeORM
 - PostgreSQL
-
-  
+- bcryptjs
 
 ## :hammer_and_wrench: Installation and Execution
 
