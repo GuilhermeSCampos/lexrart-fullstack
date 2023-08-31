@@ -29,13 +29,11 @@ export default class ConversationController {
   }
 
   public downloadCSV: RequestHandler = async (req, res) => {
-    const token = req.headers.authorization as string;
+    const { user_name } = req.body;
     const { id } = req.params;
     const filePath = path.join(__dirname, '../../../conversations.csv');
 
-    const result = await this.jwt.validate(token);
-
-    await this.conversationService.exportCSV(Number(id), result.user_name!);
+    await this.conversationService.exportCSV(Number(id), user_name);
 
 
     res.setHeader('Content-Type', 'text/csv');

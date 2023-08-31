@@ -33,7 +33,7 @@ router.post('/download/:id',
   rescue(NotAllowed)
 );
 
-router.get('/download/:id', [
+router.patch('/download/:id', [
   rescue(conversationMiddleware.verifyReqParams),
   rescue(conversationController.downloadCSV)
 ]);
