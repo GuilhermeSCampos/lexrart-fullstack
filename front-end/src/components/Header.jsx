@@ -47,7 +47,7 @@ const Header = () => {
           ) : null}
 
           {location.pathname !== "/history" ? (
-            <button onClick={() => navigate("/history")}>Historic</button>
+            <button onClick={() => navigate("/history")}>History</button>
           ) : null}
         </div>
       </div>

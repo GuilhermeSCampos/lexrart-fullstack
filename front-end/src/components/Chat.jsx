@@ -155,7 +155,7 @@ const Chat = () => {
   }, [messages, botIsTyping]);
 
   return (
-    <div className="border-2 border-slate-400 rounded-xl w-[95%] md:w-6/12 mx-auto mt-4 md:mt-20 h-[600px] flex flex-col items-center p-6 bg-gradient-to-br shadow-md">
+    <div className="border-2 border-slate-400 rounded-xl w-[95%] md:w-6/12 mx-auto mt-4 md:mt-20 h-screen md:h-[600px] flex flex-col items-center p-6 bg-gradient-to-br shadow-md">
       <div className="text-center text-xl mb-4">{currentTime}</div>
       {isChatClosed && (
         <div className="flex items-center justify-center h-1/5">
