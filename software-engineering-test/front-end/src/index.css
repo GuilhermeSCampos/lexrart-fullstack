@@ -103,3 +103,33 @@
 .fade-out {
   animation: fadeOut 0.5s forwards;
 }
+
+.modal-class {
+  z-index: 1000; 
+}
+
+.loan-option-button {
+  background-color: #3490dc; 
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.loan-option-button:hover {
+  background-color: #2779bd; 
+  transform: translateY(-3px); 
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
+}
+
+.loan-option-button:focus {
+  outline: none; 
+  box-shadow: 0 0 0 3px rgba(50,144,220,0.5); 
+}
+
+.loan-option-button:active {
+  transform: translateY(0); 
+  box-shadow: none;
+}
+
+.blue-links a {
+  color: blue;
+  text-decoration: none; /* opcional: remove o sublinhado */
+}

@@ -1,6 +1,6 @@
 import { X } from "lucide-react";
 import PropTypes from "prop-types";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Loading from "react-loading-components";
 import "../index.css";
 import { useProvider } from "../context/Provider";
@@ -11,21 +11,8 @@ const RegisterModal = ({ isOpen, onClose }) => {
   const [loading, setLoading] = useState(false);
   const [nameWarning, setNameWarning] = useState(null);
   const [passwordWarning, setPasswordWarning] = useState(null);
-  const [isDisplayed, setIsDisplayed] = useState(false);
-  const [currentClass, setCurrentClass] = useState("fade-enter");
   const { setUserName: setName, setUserIsLogged } = useProvider();
-
-  useEffect(() => {
-    if (isOpen) {
-      setIsDisplayed(true);
-      setCurrentClass("fade-enter-active");
-    } else {
-      setCurrentClass("fade-leave-active");
-      setTimeout(() => {
-        setIsDisplayed(false);
-      }, 500);
-    }
-  }, [isOpen]);
+  const [currentClass, setCurrentClass] = useState("fade-in");
 
   const verifyUserName = () => {
     if (!userName || userName.length < 1) {
@@ -85,19 +72,23 @@ const RegisterModal = ({ isOpen, onClose }) => {
   };
 
   return (
-    isDisplayed && (
+    isOpen && (
       <div
-        className={`fixed top-0 left-0 w-full h-full flex justify-center items-center bg-black bg-opacity-50 fade-in ${currentClass}`}
+        className={`fixed top-0 left-0 w-full h-full flex justify-center items-center bg-black bg-opacity-50 ${currentClass} modal-class`}
       >
         <div className="bg-white p-6 rounded-lg w-3/12">
           <button
             className="float-right cursor-pointer"
             onClick={() => {
-              onClose();
-              setLoading(false);
-              setNameWarning(false);
-              setPassword("");
-              setUserName("");
+              setCurrentClass("fade-out");
+              setTimeout(() => {
+                onClose();
+                setLoading(false);
+                setNameWarning(false);
+                setPassword("");
+                setUserName("");
+                setCurrentClass("fade-in");
+              }, 500);
             }}
             disabled={loading}
           >

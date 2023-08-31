@@ -8,7 +8,7 @@ const Historic = () => {
   const [conversations, setConversations] = useState([]);
   const [loading, setLoading] = useState(true);
   const [activeSort, setActiveSort] = useState("asc");
-  const { globalLoading } = useProvider();
+  const { globalLoading, isTransitioning } = useProvider();
   console.log(globalLoading);
 
   useEffect(() => {
@@ -66,7 +66,7 @@ const Historic = () => {
           />
         </div>
       ) : (
-        <div className="fade-in">
+        <div className={`${isTransitioning ? "fade-out" : "fade-in"}`}>
           <Header />
           <h2 className="text-center my-10 text-4xl font-semibold fade-in">
             Chat History
@@ -110,6 +110,13 @@ const Historic = () => {
                   date={new Date(conversation.createdAt)}
                 />
               ))}
+              {conversations.length < 1 && (
+                <div className="flex justify-center items-center h-[50vh]">
+                  <h2 className="text-2xl font-semibold text-gray-600">
+                    There are no Chats in our DB
+                  </h2>
+                </div>
+              )}
             </div>
           )}
         </div>

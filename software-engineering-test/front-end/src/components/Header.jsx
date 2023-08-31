@@ -20,11 +20,10 @@ const Header = () => {
     }, 500);
   };
 
-  const logOut = () => {
-    logOutWithFade();
+  const logOut = async () => {
     localStorage.clear();
     setUserIsLogged(false);
-    fetch("http://localhost:3001/auth/logout", {
+    await fetch("http://localhost:3001/auth/logout", {
       method: "POST",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -52,7 +51,7 @@ const Header = () => {
               size={22}
               color="#ffffff"
               className="mt-1 cursor-pointer"
-              onClick={logOut}
+              onClick={logOutWithFade}
             />
           </div>
         ) : (

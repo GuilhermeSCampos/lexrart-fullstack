@@ -1,6 +1,6 @@
 import { X } from "lucide-react";
 import PropTypes from "prop-types";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Loading from "react-loading-components";
 import "../index.css";
 import { useProvider } from "../context/Provider";
@@ -10,23 +10,10 @@ const LoginModal = ({ isOpen, onClose }) => {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [loginWarning, setLoginWarning] = useState(null);
-  const [isDisplayed, setIsDisplayed] = useState(false);
   const [nameWarning, setNameWarning] = useState(null);
   const [passwordWarning, setPasswordWarning] = useState(null);
-  const [currentClass, setCurrentClass] = useState("fade-enter");
   const { setUserIsLogged, setUserName: setName } = useProvider();
-
-  useEffect(() => {
-    if (isOpen) {
-      setIsDisplayed(true);
-      setCurrentClass("fade-enter-active");
-    } else {
-      setCurrentClass("fade-leave-active");
-      setTimeout(() => {
-        setIsDisplayed(false);
-      }, 500); // Espera a duração da transição
-    }
-  }, [isOpen]);
+  const [currentClass, setCurrentClass] = useState("fade-in");
 
   const verifyUserName = () => {
     if (!userName || userName.length < 1) {
@@ -81,18 +68,22 @@ const LoginModal = ({ isOpen, onClose }) => {
   };
 
   return (
-    isDisplayed && (
+    isOpen && (
       <div
-        className={`fixed top-0 left-0 w-full h-full flex justify-center items-center bg-black bg-opacity-50 fade-in ${currentClass}`}
+        className={`fixed top-0 left-0 w-full h-full flex justify-center items-center bg-black bg-opacity-50 ${currentClass} modal-class`}
       >
         <div className="bg-white p-6 rounded-lg w-3/12">
           <X
             onClick={() => {
-              onClose();
-              setLoading(false);
-              setLoginWarning(null);
-              setPassword("");
-              setUserName("");
+              setCurrentClass("fade-out");
+              setTimeout(() => {
+                onClose();
+                setLoading(false);
+                setLoginWarning(null);
+                setPassword("");
+                setUserName("");
+                setCurrentClass("fade-in");
+              }, 500);
             }}
             className="float-right cursor-pointer"
           />
@@ -104,7 +95,7 @@ const LoginModal = ({ isOpen, onClose }) => {
             value={userName}
             onChange={(e) => setUserName(e.target.value)}
           />
-           {nameWarning && (
+          {nameWarning && (
             <p className="text-xs text-red-500 px-2">{nameWarning}</p>
           )}
           <input
@@ -114,7 +105,7 @@ const LoginModal = ({ isOpen, onClose }) => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-           {passwordWarning && (
+          {passwordWarning && (
             <p className="text-xs text-red-500 px-2">{passwordWarning}</p>
           )}
           {loginWarning && (
