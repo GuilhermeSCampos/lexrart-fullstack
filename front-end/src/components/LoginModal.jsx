@@ -72,7 +72,7 @@ const LoginModal = ({ isOpen, onClose }) => {
       <div
         className={`fixed top-0 left-0 w-full h-full flex justify-center items-center bg-black bg-opacity-50 ${currentClass} modal-class`}
       >
-        <div className="bg-white p-6 rounded-lg w-3/12">
+        <div className="bg-white p-6 rounded-lg  w-10/12 md:w-3/12">
           <X
             onClick={() => {
               setCurrentClass("fade-out");

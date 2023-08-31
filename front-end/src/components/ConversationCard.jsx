@@ -45,17 +45,16 @@ const ConversationCard = ({ userName, id, date }) => {
   };
 
   return (
-    <div className="border-2 w-5/12 flex justify-between h-16 mx-auto items-center rounded-xl">
-      <div className="ml-5">
+    <div className="border-2 border-slate-400 w-10/12 md:w-5/12 flex md:flex-row flex-col justify-between h-auto md:h-16 mx-auto items-center rounded-xl p-4 md:p-0">
+      <div className="mb-2 md:mb-0 ml-5">
         <p>Conversation #{id}</p>
         <p>User: {userName}</p>
       </div>
-      <div className="flex gap-2">
-        <Upload
-          strokeWidth={2.25}
-          className="cursor-pointer"
-          onClick={() => uploadCsv()}
-        />
+      <div
+        className="flex gap-2 mb-2 md:mb-0 cursor-pointer"
+        onClick={() => uploadCsv()}
+      >
+        <Upload strokeWidth={2.25} />
         <p>Export CSV</p>
       </div>
       <p className="mr-5"> Created in: {formatDate(date)}</p>

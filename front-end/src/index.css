@@ -133,3 +133,41 @@
   color: blue;
   text-decoration: none; /* opcional: remove o sublinhado */
 }
+
+/* Estilos para o burger icon */
+.bm-burger-button {
+  position: relative;
+  width: 36px;
+  height: 30px;
+  right: 36px;
+}
+
+.bm-burger-bars {
+  background: white;
+}
+
+/* Estilos para o menu quando aberto */
+.bm-menu {
+  background-color: rgba(0, 0, 0, 0.9);
+  font-size: 1.15em;
+  margin-top: 4rem;
+}
+
+.bm-menu li {
+  list-style: none;
+  padding: 20px 0;
+}
+
+.bm-menu li a {
+  color: #d1d1d1;
+  text-decoration: none;
+}
+
+.bm-menu li a:hover {
+  color: white;
+}
+
+/* Estilo para o overlay */
+.bm-overlay {
+  background: rgba(0, 0, 0, 0.3);
+}

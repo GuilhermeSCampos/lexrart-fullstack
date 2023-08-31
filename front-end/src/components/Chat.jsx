@@ -155,13 +155,13 @@ const Chat = () => {
   }, [messages, botIsTyping]);
 
   return (
-    <div className="border-2 rounded-xl w-6/12 mx-auto mt-20 h-[600px] flex flex-col items-center p-6 bg-gradient-to-br shadow-md">
+    <div className="border-2 border-slate-400 rounded-xl w-[95%] md:w-6/12 mx-auto mt-20 h-[600px] flex flex-col items-center p-6 bg-gradient-to-br shadow-md">
       <div className="text-center text-xl mb-4">{currentTime}</div>
       {isChatClosed && (
         <div className="flex items-center justify-center h-1/5">
           <button
             onClick={restartChat}
-            className="px-8 py-4 bg-blue-600 hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 rounded-lg shadow-md text-white"
+            className="px-8 py-4 bg-blue-600 hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 rounded-lg shadow-xl text-white"
           >
             Start a New Chat
           </button>
@@ -177,7 +177,7 @@ const Chat = () => {
               } justify-start items-center`}
             >
               <div
-                className={`p-3 max-w-[40%] w-fit rounded-lg break-words ${
+                className={`p-3 md:max-w-[40%] max-w-[80%] w-fit rounded-lg break-words ${
                   index % 2 === 0 ? "bg-blue-300" : "bg-gray-300"
                 }`}
               >
