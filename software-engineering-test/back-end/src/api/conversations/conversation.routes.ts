@@ -20,7 +20,6 @@ router.post('/', [
 
 router.get('/', [
   rescue(conversationMiddleware.validateOrderQuery),
-  rescue(validateToken),
   rescue(conversationController.getConversationsByDate)
 ]);
 
@@ -35,7 +34,6 @@ router.post('/download/:id',
 );
 
 router.get('/download/:id', [
-  rescue(validateToken),
   rescue(conversationMiddleware.verifyReqParams),
   rescue(conversationController.downloadCSV)
 ]);

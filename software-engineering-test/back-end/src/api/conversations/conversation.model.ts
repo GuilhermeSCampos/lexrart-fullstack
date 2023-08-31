@@ -13,7 +13,8 @@ export default class ConversationModel {
       const conversations = await ConversationHistoricRepository.find({
         order: {
           createdAt: order === 'asc' ? 'ASC' : 'DESC'
-        }
+        },
+        relations: ['user']
       });
 
       return conversations;

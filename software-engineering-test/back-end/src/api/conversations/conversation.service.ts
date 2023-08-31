@@ -7,7 +7,17 @@ export default class ConversationService {
   ) { }
 
   public async getConversationsByDate(order: 'asc' | 'desc') {
-    return await this.conversationModel.getConversationsByDate(order);
+    const conversations =  await this.conversationModel.getConversationsByDate(order);
+
+    const updatedConversations = conversations.map((conversation) => {
+      return {
+        id: conversation.id,
+        createdAt: conversation.createdAt,
+        user_name: conversation.user.user_name,
+      }
+    })
+
+    return updatedConversations;
   }
 
   public async createConversation(text: string, userName: string) {
@@ -17,8 +27,8 @@ export default class ConversationService {
   public async exportCSV(id: number, userName: string) {
     const conversation = await this.conversationModel.findByCriteria({ id });
     if (!conversation) throw new Error('Conversation not found');
-    const messages = conversation.text.split(',');
+    const messages = conversation.text.split(';;');
 
-    await exportToCSV(messages, userName, conversation.createdAt)
+    await exportToCSV(messages, userName)
   }
 }
