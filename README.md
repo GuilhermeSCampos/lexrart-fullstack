@@ -8,79 +8,71 @@ This project aims to develop a web chatbot that responds to certain terms
 <br />
 
 In addition to being able to install and run the project locally, you can also interact with this
-[<strong>online version in a deployment carried out in Vercel</strong>]([https://uolfront.vercel.app/](https://lexrart-fullstack.vercel.app/).
+[<strong>online deploy made with vercel</strong>](https://lexrart-fullstack.vercel.app/)
 
-> 	:bangbang: Como o deploy é feito um em plano gratuito, a primeira requisição pode demorar um pouco para carregar. :bangbang:
+> 	:bangbang: As the deployment is done in a free plan, the first requests as the register and login may take a while to load. :bangbang:
 
 
 <br />
 
-E também é possível verificar a API neste [<strong>deploy realizado no Render</strong>](https://uol-api.onrender.com)
+And you can also check the API in this [<strong>deploy performed in Render</strong>](https://lexart-back-end.onrender.com/)
 
-<img src="./assets/main.png"/>
+![Optus1](https://github.com/GuilhermeSCampos/lexrart-fullstack-test/assets/82980024/3960dadd-1fb9-4440-888c-c4b61df31c83)
+![Optus2](https://github.com/GuilhermeSCampos/lexrart-fullstack-test/assets/82980024/e104b7ea-184b-4b1c-9935-a053dd59f8ba)
+
 
 <br />
 <br />
 
 
-## :wrench: Ferramentas utilizadas
+## :wrench: Tools Used
 
-<strong>Frontend<strong/>
-* JavaScript
-* React.js
-* Tailwind.css
-* Vite
-* Sweet Alert
-* React Router
-* React Toastify
-* Lucide icons
-* React Loading Components
+**Frontend**
+- JavaScript
+- React.js
+- Tailwind.css
+- Vite
+- React Router
+- Lucide icons
+- React Loading Components
+- React Context
 
+**Backend**
+- Node.js
+- Express.js
+- Cors
+- Zod
+- TypeORM
+- PostgreSQL
+- bcryptjs
 
-<strong>Backend<strong/>
-* Node.js
-* Express.js
-* Cors
-* Zod
-* TypeORM
-* PostgreSQL
-  
-
-## :hammer_and_wrench: Instalação e execução
-
+## :hammer_and_wrench: Installation and Execution
 
 <details>
-  <summary markdown="span"><strong>Rodando a aplicação localmente</strong></summary><br />
-
-Para rodar está aplicação localmente é necessário ter **Git**, **Node** e o **PostgreSQL** instalados e atualizados em seu computador.
-
-Também é necessário que o seu sistema operacional tenha um **terminal Bash** instalado. Caso você esteja utilizando **Linux** ou **macOS**, o Bash já vem instalado por padrão. Porém, se o seu sistema for **Windows**, talvez você precise fazer [a instalação a parte](https://www.lifewire.com/install-bash-on-windows-10-4101773).
+  <summary markdown="span"><strong>Running the Application Locally</strong></summary><br />
+To run this application locally, you need to have **Git**, **Node**, and **PostgreSQL** installed and updated on your computer.
 
 <details>
-  <summary markdown="span"><strong> :hammer: Configurando o Back-end</strong></summary><br />
-  
-    
-    1. Clone o repositório
+  <summary markdown="span"><strong> :hammer: Setting up the Back-end</strong></summary><br />
 
-  - Use o comando: `git clone git@github.com:edson-mac/test-fullstack.git`.
-  - Entre na pasta do repositório que você acabou de clonar:
-    - `cd test-fullstack`
-    
-  2. Entre na pasta do Backend
+1. Clone the repository
 
-  - `cd uol-backend`
+   - Use the command: `git clone git@github.com:GuilhermeSCampos/lexrart-fullstack-test.git`.
+   - Enter the repository folder you just cloned:
+     - `cd lexrart-fullstack-test`
+2. Enter the Backend folder
 
-  3. Instale as dependências
+   - `cd back-end`
 
-  - `npm install`
-    
-  <summary markdown="span"><strong>Configurando o banco de dados e .env</strong></summary><br />
-  
-  O projeto vem configurado para rodar em um banco de dados PostgreSQL, então é nessário instalar 
-  PostgreSQL em seu computador ou utilizar um servidor na nuvem. Após ter configurado seu banco, é necessário configurar
-    as variáveis de ambiente:
+3. Install the dependencies
 
-### 1. Em um arquivo .env na raíz do repositório, adicione as configurações de seu banco MySQL:
+   - `npm install`
+
+   <summary markdown="span"><strong>Setting up the Database and .env</strong></summary><br />
+
+   The project is configured to run on a PostgreSQL database, so you need to install PostgreSQL on your computer or use a cloud server. After configuring the database, you need to set the environment variables:
+
+### 1. In a .env file in the repository root, add your PostgreSQL database settings:
 
 ```sh
 DB_HOST=
@@ -90,17 +82,18 @@ DB_PASSWORD=
 DB_PORT=
 ```
 
-### 2. Nesse mesmo arquivo .env, a porta do Express desejada para rodar o servidor
+### 2. In the same .env file, set the desired port for the Express server and the JWT secret:
 
 ```sh
 PORT=
+JWT_SECRET=
 ```
-### 3. Depois de preencher os dados no env pra se conectar ao banco só utilizar em sequência, para gerar e rodar as migrations que populam o banco:
+### 3. After filling in the .env data to connect to the database, run migrations to populate the database:
   
-  - `npm run migration:generate`
+  - `npm run migration:generate` only if you don't have the migration yet
   - `npm run migration:run`
 
-### 4. Por fim, após ter efetuado todas as configurações, rode o servidor utilizando este comando no diretório uol-backend:
+### 4. Finally, after all configurations, start the server using this command in the back-end directory:
   
   - `npm run dev`
 
@@ -108,96 +101,39 @@ PORT=
   </details>
   
    <details>
-  <summary markdown="span"><strong> :sunrise: Configurando o Front-end</strong></summary><br />
+  <summary markdown="span"><strong> :sunrise: Setting up the Front-end</strong></summary><br />
   
-    
-    1. Acesse o repositório
   
-  - Entre na pasta do repositório:
-    - `cd test-fullstack`
+  1. Access the repository
+    - `cd lexrart-fullstack-test`
     
-  2. Entre na pasta do Frontend
+  2. Enter the Frontend folder
 
-  - `cd uol-frontend`
+  - `cd front-end`
 
-  3. Instale as dependências
+  3. Install the dependencies
 
   - `npm install`
     
-  <summary markdown="span"><strong>Configurando variáveis de ambiente</strong></summary><br />
+  <summary markdown="span"><strong>Setting up environment variables</strong></summary><br />
   
-  O projeto Frontend vem configurado para fazer diversas requisições para uma API, o endereço vai mudar dependendo de como você rodar o projeto, por isso é necessário configurar
-    as variáveis de ambiente:
+ The Frontend project is configured to make various requests to an API, and the API address will change depending on how you run the project. Therefore, you need to set the environment variables:
 
-### 1. Em um arquivo .env na raíz do repositório, adicione as configurações de seu endereço no API como no exemplo abaixo:
+### 1. In a .env file in the repository root, add your API address settings as shown below:
 
 ```sh
-VITE_API_URL="https://uol-api.onrender.com/"
+VITE_API_URL=https://lexart-back-end.onrender.com
 ```
 
-### 3. Por fim, após ter efetuado todas as configurações, rode o servidor utilizando este comando no diretório ostenfrontend:
+### 2. Finally, after all configurations, start the server using this command in the frontend directory:
   
-  - `npm start`
+  - `npm run dev`
 
   
   </details>
   
  </details>
  
- ## :computer: Documentação e rotas da API:
-
- <summary markdown="span"><strong>Obtendo lista de todos os clientes - GET /</strong></summary><br />
- <summary markdown="span"><strong>Excluindo uma empresa - DELETE /ID</strong></summary><br />
- <summary markdown="span"><strong>Obtendo cliente por ID - GET /ID</strong></summary><br />
- 
-<details>
-  <summary markdown="span"><strong>Cadastrando um cliente - POST / </strong></summary><br />
-  
-```sh
-body = {
-          "name": "Edson Caparroz",
-          "email": "edson-mac@hotmail.com",
-          "cpf": "22222222222",
-          "phone": "11982344005",
-           "status": "Ativo",
-        }
-```
-</details>
-
-<details>
-  <summary markdown="span"><strong>Editando um cliente por ID - PUT /ID </strong></summary><br />
-  
-```sh
-body = {
-          "id": 53,
-          "name": "Edson Caparroz",
-          "email": "edson-mac@hotmail.com",
-          "cpf": "22222222222",
-          "phone": "11982344005",
-           "status": "Ativo",
-        }
-```
-</details>
-
- ## :sunrise: Interações com Frontend :sunrise:
-<details>
-  <summary markdown="span"><strong>Ícone de alerta com Modal para alerta de input</strong></summary><br />
-  <img src="./assets/modalAlert.png" />
-</details>
-<details>
-  <summary markdown="span"><strong>Componente de Loading para aguardar requisições na API</strong></summary><br />
-  <img src="./assets/botaoloading.png" />
-</details>
-<details>
-  <summary markdown="span"><strong>Alertas de sucesso ou falha para requisições na API</strong></summary><br />
-  <img src="./assets/apiresultnotok.png" />
-  <img src="./assets/apiresultok.png" />
-</details>
-<details>
-  <summary markdown="span"><strong>Opção de DELETE com ícone de Lixeira + Confirmação de ação</strong></summary><br />
-  <img src="./assets/trashcan.png" />
-  <img src="./assets/confirmdelete.png" />
-</details>
 
 
  
