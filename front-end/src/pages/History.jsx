@@ -9,7 +9,6 @@ const Historic = () => {
   const [loading, setLoading] = useState(true);
   const [activeSort, setActiveSort] = useState("asc");
   const { globalLoading, isTransitioning } = useProvider();
-  console.log(globalLoading);
 
   useEffect(() => {
     fetch(`${import.meta.env.VITE_API_URL}/conversation?order=asc`)

@@ -35,7 +35,10 @@ const Header = () => {
   return (
     <div className="bg-blue-400 h-16 flex justify-between">
       <div className="flex justify-around gap-12">
-        <div className="bg-yellow-300 rounded-full w-16 h-14 flex justify-center self-center ml-5">
+        <div
+          className="bg-yellow-300 rounded-full w-16 h-14 flex justify-center self-center ml-5 cursor-pointer"
+          onClick={() => navigate("/")}
+        >
           <h2 className="self-center text-xl">Optus</h2>
         </div>
         <div className="flex justify-around self-center w-2/12 gap-4 text-white text-sm xl:text-xl">

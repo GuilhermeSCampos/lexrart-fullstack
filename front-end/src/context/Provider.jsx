@@ -6,7 +6,7 @@ export const Provider = (props) => {
   const [userIsLogged, setUserIsLogged] = useState(false);
   const [userName, setUserName] = useState("");
   const [messages, setMessages] = useState([]);
-  const [globalLoading, setGlobalLoading] = useState(false);
+  const [globalLoading, setGlobalLoading] = useState(true);
   const [isTransitioning, setIsTransitioning] = useState(false);
 
   const validateToken = async () => {
