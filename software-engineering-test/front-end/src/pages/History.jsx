@@ -12,7 +12,7 @@ const Historic = () => {
   console.log(globalLoading);
 
   useEffect(() => {
-    fetch("http://localhost:3001/conversation?order=asc")
+    fetch(`${import.meta.env.VITE_API_URL}/conversation?order=asc`)
       .then((res) => res.json())
       .then((data) => {
         setConversations(data);
@@ -22,7 +22,7 @@ const Historic = () => {
 
   const sortConversations = (order) => {
     setLoading(true);
-    fetch(`http://localhost:3001/conversation?order=${order}`)
+    fetch(`${import.meta.env.VITE_API_URL}/conversation?order=${order}`)
       .then((res) => res.json())
       .then((data) => {
         setConversations(data);

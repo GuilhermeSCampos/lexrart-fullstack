@@ -6,6 +6,8 @@ import { getCurrentTime, formatDateToTime } from "../utils/formatDates";
 import { botMessages } from "../utils/botMessages";
 import Loading from "react-loading-components";
 
+
+
 const Chat = () => {
   const [currentTime, setCurrentTime] = useState(getCurrentTime());
   const [isLoginModalOpen, setLoginModalOpen] = useState(false);
@@ -42,7 +44,7 @@ const Chat = () => {
     const fullString = texts.join(";;").replace(/<br\s*\/?>/gi, "").replace(/<a[^>]*>([^<]+)<\/a>/gi, '$1');
 
     try {
-      await fetch("http://localhost:3001/conversation", {
+      await fetch(`${import.meta.env.VITE_API_URL}/conversation`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

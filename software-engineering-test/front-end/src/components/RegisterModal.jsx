@@ -38,7 +38,7 @@ const RegisterModal = ({ isOpen, onClose }) => {
     if (verifyUserName() || verifyPassword()) return true;
 
     try {
-      const response = await fetch("http://localhost:3001/auth/register", {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/auth/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -48,7 +48,7 @@ const RegisterModal = ({ isOpen, onClose }) => {
       if (!response.ok) {
         setNameWarning("Username already exists");
       } else {
-        const reponse = await fetch("http://localhost:3001/auth/login", {
+        const reponse = await fetch(`${import.meta.env.VITE_API_URL}/auth/login`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

@@ -1,13 +1,12 @@
+const PARTICLE = {
+  EMPTY: '1',
+  ELECTRON: 'e',
+  PROTON: 'p',
+  NEUTRON: 'n',
+};
+
 function createCyclotron(rows, cols) {
-  const cyclotron = [];
-  for (let i = 0; i < rows; i++) {
-    const row = [];
-    for (let j = 0; j < cols; j++) {
-      row.push(1); // Initialize with 1 (empty)
-    }
-    cyclotron.push(row);
-  }
-  return cyclotron;
+  return Array(rows).fill(null).map(() => Array(cols).fill(PARTICLE.EMPTY));
 }
 
 function printCyclotron(cyclotron) {
@@ -16,32 +15,65 @@ function printCyclotron(cyclotron) {
   }
 }
 
-function cyclotron(particle, matrix) {
-  const rows = matrix.length;
-  const cols = matrix[0].length;
-
-  const cyclotron = createCyclotron(rows, cols);
-
-  // Fill the cyclotron based on particle type
-  for (let i = 0; i < rows; i++) {
-    for (let j = 0; j < cols; j++) {
-      if (matrix[i][j] === particle) {
-        cyclotron[i][j] = particle;
-      }
-    }
+function accelerateElectron(matrix) {
+  const result = matrix.map(row => row.slice());
+  for (let i = 0; i < result.length; i++) {
+    result[i][0] = PARTICLE.ELECTRON;
+    result[result.length - 1][i] = PARTICLE.ELECTRON;
   }
-
-  // Print the resulting cyclotron
-  printCyclotron(cyclotron);
+  return result;
 }
 
-// Example matrix for accelerating an electron
-const electronMatrix = [
-  ['e', 'e', 'e', 'e'],
-  ['1', '1', '1', 'e'],
-  ['1', '1', '1', 'e'],
-  ['1', '1', '1', 'e']
-];
+function accelerateProton(matrix) {
+  const result = matrix.map(row => row.slice());
+  let depth = 0;
+  let N = matrix.length;
 
-console.log("Cyclotron without particles:");
-cyclotron('e', electronMatrix);
+  while (N > 0) {
+    for (let i = depth; i < depth + N; i++) {
+      if (i === depth || i === depth + N - 1) {
+        for (let j = depth; j < depth + N; j++) {
+          result[i][j] = PARTICLE.PROTON;
+        }
+      } else {
+        result[i][depth] = PARTICLE.PROTON;
+        result[i][depth + N - 1] = PARTICLE.PROTON;
+      }
+    }
+    depth += 1;
+    N -= 2;
+  }
+  return result;
+}
+
+function accelerateParticle(particle, rows, cols) {
+  let matrix = createCyclotron(rows, cols);
+
+  switch (particle) {
+    case PARTICLE.ELECTRON:
+      matrix = accelerateElectron(matrix);
+      break;
+    case PARTICLE.PROTON:
+      matrix = accelerateProton(matrix);
+      break;
+    case PARTICLE.NEUTRON:
+      // Neutron doesn't change the matrix.
+      break;
+    default:
+      throw new Error("Unknown particle type");
+  }
+
+  printCyclotron(matrix);
+}
+
+const rows = 4;
+const cols = 4;
+
+console.log("Accelerating an electron:");
+accelerateParticle(PARTICLE.ELECTRON, rows, cols);
+
+console.log("\nAccelerating a proton:");
+accelerateParticle(PARTICLE.PROTON, rows, cols);
+
+console.log("\nAccelerating a neutron:");
+accelerateParticle(PARTICLE.NEUTRON, rows, cols);

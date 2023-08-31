@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const ConversationCard = ({ userName, id, date }) => {
   const uploadCsv = async () => {
-    const response = await fetch(`http://localhost:3001/conversation/download/${id}`, {
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/conversation/download/${id}`, {
       method: "GET",
       headers: {
         Authorization:

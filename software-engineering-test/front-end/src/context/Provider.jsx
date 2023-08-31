@@ -12,7 +12,7 @@ export const Provider = (props) => {
   const validateToken = async () => {
     const token = localStorage.getItem("token");
     if (token) {
-      const response = await fetch("http://localhost:3001/auth/validate", {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/auth/validate`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
