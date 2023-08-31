@@ -135,42 +135,6 @@ VITE_API_URL=https://lexart-back-end.onrender.com
   
  </details>
  
- ## :computer: API Documentation and Routes:
-
- <summary markdown="span"><strong>Getting all the conversations - GET /conversation?order=</strong></summary><br />
- 
- <summary markdown="span"><strong>Creating a conversation - POST /conversation</strong></summary><br />
- 
-```json
-{
-          "text": "asdoaskd##date;;",
-      
-        }
-```
- <summary markdown="span"><strong>Downloading a conversation - PATCH /conversation/:id</strong></summary><br />
- 
-<details>
-  <summary markdown="span"><strong>Creating an user - POST /auth/register </strong></summary><br />
-  
-```sh
-body = {
-          "user_name": "guilherme",
-          "password": "guilherme123",
-        }
-```
-</details>
-
-<details>
-  <summary markdown="span"><strong>Login - POST /auth;login </strong></summary><br />
-  
-```sh
-body = {
-          "user_name": "name",
-          "password": "password"
-        }
-```
-</details>
-
 
 
  
